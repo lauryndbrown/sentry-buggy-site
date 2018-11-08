@@ -1,0 +1,9 @@
+body{
+    height: 100vh; 
+}
+.heading{
+    margin-bottom: 100px;
+}
+.bug-container, .container-fluid, .jumbotron.jumbotron-fluid{
+    height: 100%; 
+}
