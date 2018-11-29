@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2> Why is this not showing up?!?</h2>
+<p>
+    I only want this to work if I have both a company name AND a number. 
+    Something is wrong because they all have names and numbers, but they don't all show up!
+</p>
+<script>
+    var names = ['The Java Company', 'Python Parlor', 'JavaScript Coffee Shop', '', 'Ruby Rugs'];
+    var numbers = [10, 20, 30, 0, 2, -10]
+    
+    function show_names_and_numbers(){
+        var name = document.getElementById("name").value;
+        var number = document.getElementById("number").value;
+        if(name && number){
+            document.getElementById("result").innerHTML = `${name} has ${number} customers right now!`;
+        }
+        else{
+         /* throw an error */
+         throw new Error("This isn\'t working!");
+        }
+        
+    }
+</script>
+<form>
+    Company Name: <input type="text" id="name" placeholder="Company Name"><br/>
+    Number of Customers: <input type="text" id="number" defaultValue="0"><br/>
+    <input class="btn btn-primary btn-lg" id="runButton" type="button" value="Click to enter customer information" onclick="show_names_and_numbers();" />
+</form>
+
+<p id="result"></p>
+{% endblock %}

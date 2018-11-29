@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://browser.sentry-cdn.com/4.3.0/bundle.min.js" crossorigin="anonymous"></script>
+    <title>Sentry's Buggy Website</title>
+    <style>
+        body{
+            color: #16111C;
+            height: 100vh; 
+            background-image: url('https://sentry-brand.storage.googleapis.com/sentry-pattern.png');
+        }
+        .heading{
+            margin-bottom: 100px;
+        }
+        h
+        .bug-container, .container-fluid, .jumbotron{
+            height: 100%; 
+        }
+        .jumbotron, .contents{
+            background-color: #ffffff;
+            height: 100vh;
+        }
+        .btn, .btn:hover{
+            background-color: #6C5FC7;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        Sentry.init({ 
+		dsn: 'https://88aa5d5321f5443aad001312eed3997d@sentry.io/1319214',
+		release: "another@8371445ab8a9facd271df17038ff295a48accae7"
+	 });
+    </script>
+    
+    
+    <div class='container'>
+        <div class="jumbotron">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+</body>
+
+</html>

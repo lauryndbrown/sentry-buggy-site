@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Counting Bugs</h2>
+<p>
+    I'm counting down from 10. But something went wrong here...?
+</p>
+<script>
+    var times_run = 0;/*Don't change this var*/
+    
+    var count = 10;
+    var add_me = '1';
+    function count_down(){
+        count+= add_me;
+        document.getElementById("result").innerHTML += `${count}<br />`;
+        check_count();
+    }  
+    function check_count(){
+        /* 
+        Don't Change this method
+        thow an error if count is not 10 
+        */
+        if(times_run++ >=10 || count>10 || count<0){
+            // error
+            throw new Error("Count is not right!");
+            document.getElementById("result").innerHTML += `<br />ERROR!`;
+        }
+    }
+</script>
+<p id="result"></p>
+<form>
+    <input class="btn btn-primary btn-lg" id="runButton" type="button" value="Click to Count Down!" onclick="count_down();" />
+</form>
+
+{% endblock %}

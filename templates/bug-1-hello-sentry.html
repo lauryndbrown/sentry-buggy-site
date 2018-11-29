@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="contents row align-items-center">
+    <div class="col align-items-center">
+        <h2>Say Hello</h2>
+        <p>
+            The box below should say hello whether you put a name in there or not.
+            It seems to sometimes work and not always!
+        </p>
+    </div>
+    <div class="col">
+        <p id="hello"></p>
+        <input type="text" id="name" placeholder="My Name!"><br />
+        <input class="btn btn-primary btn-lg" id="helloButton" type="button" value="Click Me I'm Friendly!" onclick="say_hello();" />
+    </div>
+</div>
+
+<script>
+    function say_hello(){
+        name = document.getElementById("name").value;
+        if(!name)
+            helloworld = 'Hello Sentry!';
+        else
+            helloWorld = `Hello ${name}!`;
+        document.getElementById("hello").innerHTML = helloWorld;
+        console.log(helloWorld);
+    } 
+</script>
+{% endblock %}
