@@ -11,7 +11,7 @@
     <style>
         body{
             color: #16111C;
-            height: 100vh; 
+            height: 100vh;
             background-image: url('https://sentry-brand.storage.googleapis.com/sentry-pattern.png');
         }
         .heading{
@@ -19,7 +19,7 @@
         }
         h
         .bug-container, .container-fluid, .jumbotron{
-            height: 100%; 
+            height: 100%;
         }
         .jumbotron, .contents{
             background-color: #ffffff;
@@ -33,19 +33,36 @@
 
 <body>
     <script>
-        Sentry.init({ 
+        Sentry.init({
 		dsn: 'https://88aa5d5321f5443aad001312eed3997d@sentry.io/1319214',
 		release: "another@8371445ab8a9facd271df17038ff295a48accae7"
 	 });
     </script>
-    
-    
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/hello/">Bug 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/count-down/">Bug 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/name-and-number/">Bug 3</a>
+        </li>
+      </ul>
+  </nav>
+</div>
     <div class='container'>
         <div class="jumbotron">
             {% block content %}{% endblock %}
         </div>
     </div>
-    
+
 </body>
 
 </html>
