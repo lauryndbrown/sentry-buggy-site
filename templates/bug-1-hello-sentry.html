@@ -4,7 +4,7 @@
     <div class="col align-items-center">
         <h2>Say Hello</h2>
         <p>
-            The box below should say hello whether you put a name in there or not.
+            The box should say hello whether you put a name in there or not.
             Can you figure out why it doesn't work without a name?
         </p>
     </div>
@@ -16,14 +16,15 @@
 </div>
 
 <script>
+  // separate file in a js file wihtout getElementById
     function say_hello(){
         name = document.getElementById("name").value;
-        if(!name)
-            helloworld = 'Hello Sentry!';
+        if(name.length < 1)
+            goodDayWorld = 'Hello Sentry! You got it right!!!';
         else
             helloWorld = `Hello ${name}!`;
         document.getElementById("hello").innerHTML = helloWorld;
-        console.log(helloWorld);
+        console.log(name);
     }
 </script>
 {% endblock %}

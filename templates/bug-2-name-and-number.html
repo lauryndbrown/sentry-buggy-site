@@ -2,24 +2,24 @@
 {% block content %}
 <h2> Why is this not showing up?!?</h2>
 <p>
-    I only want this to work if I have both a company name AND a number. 
+    I only want this to work if I have both a company name AND a number.
     Something is wrong because they all have names and numbers, but they don't all show up!
 </p>
 <script>
     var names = ['The Java Company', 'Python Parlor', 'JavaScript Coffee Shop', '', 'Ruby Rugs'];
     var numbers = [10, 20, 30, 0, 2, -10]
-    
+
     function show_names_and_numbers(){
         var name = document.getElementById("name").value;
         var number = document.getElementById("number").value;
-        if(name && number){
+        if(name && parseInt(number)){
             document.getElementById("result").innerHTML = `${name} has ${number} customers right now!`;
         }
         else{
          /* throw an error */
-         throw new Error("This isn\'t working!");
+         throw new Error(`This isn\'t working!\n Name: ${name},  Number: ${number}`);
         }
-        
+
     }
 </script>
 <form>

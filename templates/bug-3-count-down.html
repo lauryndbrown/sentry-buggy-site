@@ -6,25 +6,21 @@
 </p>
 <script>
     var times_run = 0;/*Don't change this var*/
-    
-    var count = 10;
-    var add_me = '1';
-    function count_down(){
-        count+= add_me;
-        document.getElementById("result").innerHTML += `${count}<br />`;
-        check_count();
-    }  
     function check_count(){
-        /* 
+        /*
         Don't Change this method
-        thow an error if count is not 10 
+        thow an error if count is not 10
         */
         if(times_run++ >=10 || count>10 || count<0){
             // error
-            throw new Error("Count is not right!");
+            throw new Error("Count is not right! Blah!");
             document.getElementById("result").innerHTML += `<br />ERROR!`;
         }
     }
+    function show_count(){
+      document.getElementById("result").innerHTML += `${count}<br />`;
+    }
+
 </script>
 <p id="result"></p>
 <form>
