@@ -1,17 +1,28 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
+<script>
+    function main(){
+        sayHello();
+        checkSayHello();
+    }
+    function checkSayHello(){
+        var message = document.getElementById("hello").innerHTML;
+        if(message === "undefined")
+            Sentry.captureException(new Error("sayHello message is undefined."));
+    }    
+</script>
 <div class="contents row align-items-center">
     <div class="col align-items-center">
         <h2>Say Hello</h2>
         <p>
             The box should say hello whether you put a name in there or not.
-            Can you figure out why it doesn't work without a name?
+            Can you figure out why it doesn"t work without a name?
         </p>
     </div>
     <div class="col">
         <p id="hello"></p>
         <input type="text" id="name" placeholder="My Name!"><br />
-        <input class="btn btn-primary btn-lg" id="helloButton" type="button" value="Click Me I'm Friendly!" onclick="sayHello();" />
+        <input class="btn btn-primary btn-lg" id="helloButton" type="button" value="Click Me I'm Friendly!" onclick="main();" />
     </div>
 </div>
 {% endblock %}
