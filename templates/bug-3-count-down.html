@@ -5,28 +5,33 @@
     I'm counting down from 10. But something went wrong here...?
 </p>
 <script>
-    var times_run = 0;/*Don't change this var*/
-    function check_count(){
+    function checkCount(){
         /*
         Don't Change this method
         thow an error if count is not 10
         */
-        if(times_run++ >=10 || count>10 || count<0){
+        if(count>10 || count<0){
             // error
-            throw new Error("Count is not right! Blah!");
-            document.getElementById("result").innerHTML += `<br />ERROR!`;
+            Sentry.configureScope((scope) => {
+                scope.setExtra("count", count);
+                Sentry.captureException(new Error('Count is not right!'));
+            });
+
+            document.getElementById("result").innerHTML += `<br />ERROR!     `;
         }
     }
-    function show_count(){
+    function showCount(){
       document.getElementById("result").innerHTML += `${count}<br />`;
     }
 
+    function main(){
+        countDown();
+        checkCount();
+        showCount();
+    }
 </script>
 <p id="result"></p>
 <form>
-    <input class="btn btn-primary btn-lg" id="runButton" type="button" value="Click to Count Down!" onclick="count_down();" />
+    <input class="btn btn-primary btn-lg" id="runButton" type="button" value="Click to Count Down!" onclick="main();" />
 </form>
-
 {% endblock %}
-
-=Jp2c=-UCA~{(yk"&b

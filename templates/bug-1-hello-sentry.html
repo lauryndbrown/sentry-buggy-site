@@ -11,20 +11,7 @@
     <div class="col">
         <p id="hello"></p>
         <input type="text" id="name" placeholder="My Name!"><br />
-        <input class="btn btn-primary btn-lg" id="helloButton" type="button" value="Click Me I'm Friendly!" onclick="say_hello();" />
+        <input class="btn btn-primary btn-lg" id="helloButton" type="button" value="Click Me I'm Friendly!" onclick="sayHello();" />
     </div>
 </div>
-
-<script>
-  // separate file in a js file wihtout getElementById
-    function say_hello(){
-        name = document.getElementById("name").value;
-        if(name.length < 1)
-            goodDayWorld = 'Hello Sentry! You got it right!!!';
-        else
-            helloWorld = `Hello ${name}!`;
-        document.getElementById("hello").innerHTML = helloWorld;
-        console.log(name);
-    }
-</script>
 {% endblock %}
