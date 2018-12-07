@@ -9,6 +9,9 @@
     <script src="https://browser.sentry-cdn.com/4.3.0/bundle.min.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='bug1.js')}}"></script>
     <script src="{{ url_for('static', filename='bug2.js')}}"></script>
+    <script src="{{ url_for('static', filename='bug3.js')}}"></script>
+    <script src="{{ url_for('static', filename='bug4.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
     <title>Sentry's Buggy Website</title>
     <style>
         body{
@@ -40,7 +43,30 @@
 		release: "another@8371445ab8a9facd271df17038ff295a48accae7"
 	 });
     </script>
+    <script>
+        function drawCountDownStars(numberOfStars, div){
+            var stars = ''; 
+            for(var star = 0; star >= 0 && star < numberOfStars; star = star + 1)
+                stars+='* ';
+            stars+='\n';
+            document.getElementById(div).innerHTML += `(${numberOfStars}) ${stars}<br >`;
+        }
+        function checkCount(num, message, div){
+            /*
+            Don't Change this method
+            thow an error if count is not 10
+            */
+            if(num>10 || num<0){
+                // error
+                Sentry.configureScope((scope) => {
+                    scope.setExtra("count", num);
+                    Sentry.captureException(new Error(message));
+                });
 
+                document.getElementById(div).innerHTML += `<br />ERROR!    `;
+            }
+        }
+    </script>
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <ul class="navbar-nav">
@@ -54,7 +80,10 @@
           <a class="nav-link" href="/count-down/">Bug 2</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/name-and-number/">Bug 3</a>
+            <a class="nav-link" href="/count-down-2/">Bug 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stars/">Bug 4</a>
         </li>
       </ul>
   </nav>

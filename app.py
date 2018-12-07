@@ -6,11 +6,14 @@ app = Flask(__name__)
 def bug1(name=None):
     return render_template('bug-1-hello-sentry.html')
 
-@app.route('/name-and-number/')
-def bug2():
-    return render_template('bug-2-name-and-number.html')
-
 @app.route('/count-down/')
+def bug2():
+    return render_template('bug-2-count-down.html')
+
+@app.route('/count-down-2/')
 def bug3():
     return render_template('bug-3-count-down.html')
 
+@app.route('/stars/')
+def bug4():
+    return render_template('bug-4-stars.html')

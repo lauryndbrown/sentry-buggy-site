@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2> Why is this not showing up?!?</h2>
+<p>
+    I'm drawing stars. But it's not giving me the number I want!
+</p>
+<script>
+    function showStars(stars){
+        document.getElementById("stars").innerHTML = `${stars}`;
+    }
+   function main(){
+        var numberOfStars = document.getElementById("number").value;
+        drawStars(numberOfStars);
+   }
+</script>
+
+<h3 id="stars"></h3>
+<form>
+    Number of Stars: <input type="text" id="number" defaultValue="0"><br/>
+    <input class="btn btn-primary btn-lg" id="runButton" type="button" value="Click to draw stars!" onclick="main();" />
+</form>
+
+{% endblock %}

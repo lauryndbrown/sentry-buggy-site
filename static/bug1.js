@@ -1,12 +1,8 @@
-function showHello(message){
-    document.getElementById("hello").innerHTML = message;
-}
-
-function sayHello(){
-    var name = document.getElementById("name").value;
+function sayHello(name){
+    var helloWorld = '';
     if(name.length < 1)
-        var goodDayWorld = 'Hello Sentry! You got it right!!!';
+        varWithWrongName = "Hello Sentry! You got it right!!!";
     else
-        var helloWorld = `Hello ${name}!`;
+        helloWorld = `Hello ${name}!`;
     showHello(helloWorld);
 }

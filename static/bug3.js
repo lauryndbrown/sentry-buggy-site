@@ -1,6 +1,6 @@
-var count_2 = 10;
-var add_me_2 = '1';
+var count2 = 11;
+var addMe2 = '1';
 
-function count_down_2(){
-    count_2 = count_2 + add_me_2;
+function countDown2(){
+    count2 = count2 + addMe2;
 }

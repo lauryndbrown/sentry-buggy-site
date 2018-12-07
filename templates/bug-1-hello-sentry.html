@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <script>
+     function showHello(message){
+        document.getElementById("hello").innerHTML = message;
+    }
     function main(){
-        sayHello();
+        var name = document.getElementById("name").value;
+        sayHello(name);
         checkSayHello();
     }
     function checkSayHello(){
         var message = document.getElementById("hello").innerHTML;
-        if(message === "undefined")
+        if(!message)
+            message = `ERROR!`;
+            showHello(message);
             Sentry.captureException(new Error("sayHello message is undefined."));
-    }    
+    }  
 </script>
 <div class="contents row align-items-center">
     <div class="col align-items-center">
