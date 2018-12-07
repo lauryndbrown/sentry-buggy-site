@@ -4,4 +4,6 @@ function drawStars(numberOfStars){
         stars+='* ';
     stars+='\n';
     showStars(stars);
+    
+    checkStars(); //checking the answer
 }

@@ -5,9 +5,20 @@
     I'm drawing stars. But it's not giving me the number I want!
 </p>
 <script>
+    var stars_written = 0;
     function showStars(stars){
+        stars_written = stars.length;
         document.getElementById("stars").innerHTML = `${stars}`;
     }
+   function checkStars(){
+        var numberOfStars = document.getElementById("number").value;
+       if(stars_written != numberOfStars)
+            Sentry.configureScope((scope) => {
+                scope.setExtra("stars written", stars_written);
+                scope.setExtra("stars wanted", numberOfStars);
+                Sentry.captureException(new Error('Number of stars is wrong!'));
+            });
+   }
    function main(){
         var numberOfStars = document.getElementById("number").value;
         drawStars(numberOfStars);

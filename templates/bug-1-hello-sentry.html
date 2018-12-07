@@ -6,15 +6,23 @@
     }
     function main(){
         var name = document.getElementById("name").value;
-        sayHello(name);
-        checkSayHello();
+        try{
+            sayHello(name);
+        }
+        catch(error)
+        {
+            checkSayHello(error);
+            return;
+        }
+        checkSayHello(null);
     }
-    function checkSayHello(){
+    function checkSayHello(error){
         var message = document.getElementById("hello").innerHTML;
-        if(!message)
+        if(error || !message){
             message = `ERROR!`;
+            Sentry.captureException(error || new Error("sayHello message is undefined."));
             showHello(message);
-            Sentry.captureException(new Error("sayHello message is undefined."));
+        }
     }  
 </script>
 <div class="contents row align-items-center">
