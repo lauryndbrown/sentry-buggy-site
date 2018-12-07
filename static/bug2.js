@@ -1,8 +1,8 @@
 var count = 11;
-var addingButShouldSubtract = 1;
+var addMe = 1;
 
 function countDown(){
-    count = count + addingButShouldSubtract;
+    count = count + addMe;
     
     //Just checking your answer!
     checkCount(count, "Count is not Right!", "countDownResult");
