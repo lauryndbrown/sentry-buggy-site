@@ -1,8 +1,8 @@
 var count2 = 11;
-var addMe2 = '1';
+var addingButShouldSubtract2 = '1 I am a string!';
 
 function countDown2(){
-    count2 = count2 + addMe2;
+    count2 = count2 + addingButShouldSubtract2;
 
     //Just checking your answer!
     checkCount(count2, "Second Count is not Right!", "countDownResult2");

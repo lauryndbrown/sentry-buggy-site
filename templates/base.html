@@ -56,7 +56,7 @@
             Don't Change this method
             thow an error if count is not 10
             */
-            if(num>10 || num<0){
+            if(num>10){
                 // error
                 Sentry.configureScope((scope) => {
                     scope.setExtra("count", num);
@@ -64,6 +64,9 @@
                 });
 
                 document.getElementById(div).innerHTML += `<br />ERROR!    `;
+            }
+            else if(num <= 10){
+                document.getElementById(div).innerHTML += `<br />YAY! Great count down!    `;
             }
         }
     </script>
